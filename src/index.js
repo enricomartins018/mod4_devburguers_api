@@ -1,12 +1,14 @@
-// IMPORTAÇÕES DE BIBLIOTECAS
+// Importações de bibliotecas
 import mongoose from 'mongoose';
 import nodemon from 'nodemon';
 import express from 'express';
+import "dotenv/config";
 
-const DB_USER = "devburguers_squad4"
-const DB_PASSWORD = encodeURIComponent('3ZK2eMFjSio57Lp3')
+const devburguers_db_user = process.env.DB_USER
+const devburguers_db_password = encodeURIComponent(process.env.DB_PASSWORD)
 
-mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@devburguers.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
+// Conectando com o banco de dados 
+mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@devburguers.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
     // Se der tudo ok com a conexão, o then aparece com a seguinte mensagem:
     .then(() => {
         app.listen(3000)
