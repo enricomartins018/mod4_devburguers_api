@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
     }
 
     const pedidos = {
-        pedido, 
+        pedido,
         nome, 
         endereco, 
         itensdopedido, 
@@ -67,7 +67,7 @@ router.get('/:id', async (req, res) => {
             return
         }
 
-        res.status(500).json({ pedidos })
+        res.status(201).json({ pedidos })
 
     } catch (error) {
 

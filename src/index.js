@@ -3,6 +3,8 @@ import express from 'express';
 const app = express()
 import "dotenv/config";
 
+app.use(express.json());
+  
 // rotas da API
 import pedidosRoutes from './routes/pedidosRoutes.js'
 app.use('/pedidos', pedidosRoutes)
