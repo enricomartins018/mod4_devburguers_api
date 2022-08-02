@@ -76,3 +76,37 @@ router.get('/:id', async (req, res) => {
     }
 
 })
+
+// Update - atualização de dados (PUT, PATCH)
+router.patch('/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    const { pedido, nome, endereco, itensdopedido, formadepagamento, mododeentrega, total  } = req.body
+
+    const pedidos = {
+        pedido, 
+        nome, 
+        endereco, 
+        itensdopedido, 
+        formadepagamento, 
+        mododeentrega, 
+        total
+    }
+
+    try {
+        const updatePedidos = await Pedidos.updateOne({ _id: id }, pedidos)
+
+        if (updatePedidos.matchedCount === 0) {
+            res.status(422).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+            return
+        }
+
+        res.status(200).json(pedidos)
+
+    } catch (error) {
+        res.status(500).json({ error: error })
+
+    }
+})
+
