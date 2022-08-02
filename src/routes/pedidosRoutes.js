@@ -133,3 +133,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
     }
 })
+
+export default router
