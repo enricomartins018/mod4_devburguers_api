@@ -110,3 +110,26 @@ router.patch('/:id', async (req, res) => {
     }
 })
 
+// Delete - Deletar dados
+router.delete('/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    const pedidos = await Pedidos.findOne({ _id: id })
+
+    if (!pedidos) {
+        res.status(422).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+        return
+    }
+
+    try {
+
+        await Pedidos.deleteOne({_id: id})
+
+        res.status(200).json({ message: "O seu pedido foi removido com sucesso!"})
+
+    } catch (error) {
+
+        res.status(500).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+    }
+})
