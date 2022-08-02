@@ -33,3 +33,20 @@ router.post('/', async (req, res) => {
     }
 
 })
+
+// Read - Leitura de dados para todo o banco de dados
+router.get('/', async (req, res) => {
+
+    try {
+
+        const pedidos = await Pedidos.find()
+
+        res.status(200).json(pedidos)
+
+    } catch (error) {
+
+        res.status(500).json({ erro: 'Não foi possível encontrar os pedidos, por favor entre em contato conosco!' })
+
+    }
+
+})
