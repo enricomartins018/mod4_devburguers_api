@@ -67,7 +67,7 @@ router.get('/:id', async (req, res) => {
             return
         }
 
-        res.status(201).json({ pedidos })
+        res.status(200).json({ pedidos })
 
     } catch (error) {
 
