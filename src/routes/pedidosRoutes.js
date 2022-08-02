@@ -50,3 +50,29 @@ router.get('/', async (req, res) => {
     }
 
 })
+
+// Leitura de dados único, apenas para um id 
+router.get('/:id', async (req, res) => {
+
+    console.log(req)
+
+    // extrair o dado da requisição, pela url = req.params
+    const id = req.params.id
+
+    try {
+        const pedidos = await Pedidos.findOne({ _id: id })
+
+        if (!pedidos) {
+            res.status(422).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+            return
+        }
+
+        res.status(500).json({ pedidos })
+
+    } catch (error) {
+
+        res.status(500).json({ error: error })
+
+    }
+
+})
