@@ -1,4 +1,4 @@
-# Projeto de Final de Módulo 4 - DevBurgers 🍔
+# Projeto de Final de Módulo 4 - DevBurguers 🍔
 
   <a href="#sobre">Sobre |</a>&nbsp;&nbsp;
   <a href="#andamento"> Andamento  |</a>&nbsp;&nbsp;
