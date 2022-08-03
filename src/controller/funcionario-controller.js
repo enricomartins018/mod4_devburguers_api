@@ -39,3 +39,20 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: error });
   }
 });
+
+// READ por ID
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+
+  if (!Funcionario) {
+    res.status(422).json({ mensagem: "O usuário não foi encontrado!" });
+    return;
+  }
+
+  try {
+    const funcionario = await Funcionario.findOne({ _id: id });
+    res.status(200).json(funcionario);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
