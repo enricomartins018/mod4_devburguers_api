@@ -56,3 +56,32 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: error });
   }
 });
+
+// UPDATE
+router.patch("/:id", async (req, res) => {
+  const id = req.params.id;
+  const { nome, cargo, email, CPF } = req.body;
+
+  const funcionario = {
+    nome,
+    cargo,
+    email,
+    CPF,
+  };
+
+  try {
+    const updatedFuncionario = await Funcionario.updateOne(
+      { _id: id },
+      funcionario
+    );
+
+    if (!updatedFuncionario.matchedCount === 0) {
+      res.status(422).json({ mensagem: "O funcionário não foi encontrado!" });
+      return;
+    }
+
+    res.status(200).json(funcionario);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
