@@ -4,10 +4,10 @@ const app = express()
 import "dotenv/config";
 
 app.use(express.json());
-  
+
 // rotas da API
-import pedidosRoutes from './routes/pedidosRoutes.js'
-app.use('/pedidos', pedidosRoutes)
+import pedidosController from './controller/pedidos-controller.js'
+app.use('/pedidos', pedidosController)
 
 // Exportando o Express
 export default app
