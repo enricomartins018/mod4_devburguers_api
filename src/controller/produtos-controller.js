@@ -55,3 +55,29 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+//Update - atualização de dados (PUT, PATCH)
+router.patch('/:id', async (req, res) => {
+    const id = req.params.id
+    const { nome, ingredientes, preço } = req.body
+    const produtos = {
+        nome,
+        ingredientes,
+        preço
+    }
+
+    try {
+        const updateProdutos = await Produtos.updateOne({ _id: id }, produtos)
+
+
+        if (updateProdutos.matchedCount === 0) {
+            res.status(422).json({ message: 'O produto não foi encontrado!' })
+            return
+        }
+
+        res.status(200).json(produtos)
+
+    } catch (error) {
+        res.status(500).json({ error: "Não foi possível atualizar o produto!" })
+    }
+});
+
