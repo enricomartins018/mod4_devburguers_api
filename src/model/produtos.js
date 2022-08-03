@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const Produtos = mongoose.model('produto',{
+const Produtos = mongoose.model("produto", {
     nome: String,
     ingredientes: String,
-    preço: String
-})
+    preço: String,
+});
 
-export default Produtos
+export default Produtos;
