@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 
-import Funcionario from "../model/funcionario.js";
+import Funcionario from "../model/funcionarios.js";
 
 // CREATE
 router.post("/", async (req, res) => {
