@@ -29,3 +29,13 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: error });
   }
 });
+
+// READ
+router.get("/", async (req, res) => {
+  try {
+    const funcionario = await Funcionario.find();
+    res.status(200).json(funcionario);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
