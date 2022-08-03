@@ -28,3 +28,30 @@ router.post("/", async (req, res) => {
         res.status(500).json({ error: "O produto não foi inserido!" });
     }
 });
+
+//Read - leitura de dados
+router.get('/', async (req, res) => {
+    try {
+        const produtos = await Produtos.find()
+        res.status(200).json(produtos)
+    } catch (error) {
+        res.status(500).json({ error: "O produto não foi encontrado" })
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    //extrair dado da requisição
+    const id = req.params.id
+    if (!Produtos) {
+        res.status(422).json({ error: 'O nome do produto é obrigatório!' })
+        return
+    }
+
+    try {
+        const produtos = await Produtos.findOne({ _id: id });
+        res.status(200).json(produtos);
+    } catch (error) {
+        res.status(500).json({ error: 'O produto não foi encontrado' });
+    }
+});
+
