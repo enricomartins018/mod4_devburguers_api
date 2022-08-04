@@ -4,27 +4,28 @@
 <p> A proposta do projeto de final de módulo 4 foi de desenvolver uma API RESTful.
 Com esse desafio, criamos a DevBurguers, uma API pensada para as hambúrguerias da nossa região, utilizando o MongoDB como banco de dados e hospedando nossa API no servidor da Heroku.</p>
 
-##  :pencil2: Pré-Requisitos
-  * Node.js  v.16.15.1
-  * NPM v.8.11.0
+## :pencil2: Pré-Requisitos
 
-##  Bibliotecas utilizadas
+- Node.js v.16.15.1
+- NPM v.8.11.0
 
-* Express
-* Nodemon
-* Mongoose
-* Dotenv
+## Bibliotecas utilizadas
+
+- Express
+- Nodemon
+- Mongoose
+- Dotenv
 
 <h2 id="linguagens">📚 Softwares & Ferramentas utilizadas nesse projeto </h2>
 
-  - [x] Visual Studio Code
-  - [x] NodeJs
-  - [x] JavaScript
-  - [x] MongoDB
-  - [x] Git
-  - [x] KanBan
-  - [x] Trello
-  - [x] Figma
+- [x] Visual Studio Code
+- [x] NodeJs
+- [x] JavaScript
+- [x] MongoDB
+- [x] Git
+- [x] KanBan
+- [x] Trello
+- [x] Figma
 
 ## ⚙ Instalação da Aplicação
 
@@ -39,7 +40,7 @@ git clone https://github.com/enricomartins018/mod4_devburguers_api.git
 Instalando as bibliotecas:
 
 ```
-npm install 
+npm install
 ```
 
 Atualizando os scripts no package.json:
@@ -52,14 +53,17 @@ Atualizando os scripts no package.json:
 ```
 
 Rodando o projeto no modo de produção:
+
 ```
 npm start
 ```
 
 Rodando o projeto no modo de desenvolvimento:
+
 ```
 npm run dev
 ```
+
 <h2 id="contribuir">🌿 Criando e conectando seu banco de dados no MongoDB</h2>
 
 Siga o passo a passo para criar seu banco de dados e se conectar:
@@ -74,7 +78,7 @@ Siga o passo a passo para criar seu banco de dados e se conectar:
 
 5 - Configure seu servidor da nuvem e a região. (Recomendado: AWS Sao-Paulo)
 
-6 - Selecione o armazenamento de sua preferência. (Recomendado: M0 Sandbox) 
+6 - Selecione o armazenamento de sua preferência. (Recomendado: M0 Sandbox)
 
 7 - Configure o nome do seu banco de dados.
 
@@ -98,9 +102,10 @@ mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password
 
 16 - Para proteção do seu banco de dados, criamos variáveis de ambientes, note que no código acima temos três variáveis: Email, senha e nome.
 
-17 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida insira o email, senha e nome dentro do arquivo para conectar com seu banco de dados. 
+17 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida insira o email, senha e nome dentro do arquivo para conectar com seu banco de dados.
 
-Exemplo: 
+Exemplo:
+
 ```
 devburguers_db_user=seuusuario
 devburguers_db_password=suasenha
@@ -110,19 +115,20 @@ devburguers_db_name=nomedoseubancodedados
 18 - Tente efetuar um teste de conexão para ver se está tudo ok. Obs: Abra o terminal e insira o comando "npm run dev"
 
 Esquema de resposta para uma conexão sucedida
+
 ```
 [nodemon] starting `node ./src/server.js`
 Banco de dados conectado com sucesso!
 Endpoint: http://localhost:3000
 ```
 
-## Exemplo de Rota: Pedidos 
+## Exemplo de Rota: Pedidos
 
- * __GET  /pedidos__
+- **GET /pedidos**
 
 Exemplo de esquema da resposta:
-```json
 
+```json
 {
     "_id": "62e988a701ea8a88b5d2cf25",
     "pedido": "Número 50",
@@ -135,28 +141,29 @@ Exemplo de esquema da resposta:
 }
 ```
 
- * __GET  /pedidos/:id__
+- **GET /pedidos/:id**
 
 Exemplo de esquema da resposta:
-```json
 
+```json
 {
-    "pedidos": {
-        "_id": "62e988a701ea8a88b5d2cf25",
-        "pedido": "Número 50",
-        "nome": "Enrico Martins",
-        "endereco": "Avenida Pastor Martin Luther King Júnior N°11089",
-        "itensdopedido": "2x X-bacon",
-        "formadepagamento": "Cartão de crédito",
-        "mododeentrega": "Delivery",
-        "total": "R$30,00",
-    }
+  "pedidos": {
+    "_id": "62e988a701ea8a88b5d2cf25",
+    "pedido": "Número 50",
+    "nome": "Enrico Martins",
+    "endereco": "Avenida Pastor Martin Luther King Júnior N°11089",
+    "itensdopedido": "2x X-bacon",
+    "formadepagamento": "Cartão de crédito",
+    "mododeentrega": "Delivery",
+    "total": "R$30,00"
+  }
 }
 ```
 
-* __POST /pedidos__
+- **POST /pedidos**
 
 Exemplo de esquema da requisição
+
 ```json
 {
     "pedido": "Número 52",
@@ -170,6 +177,7 @@ Exemplo de esquema da requisição
 ```
 
 Exemplo de esquema da resposta do POST
+
 ```json
 {
     "message": "Pedido efetuado com sucesso!"
@@ -177,12 +185,13 @@ Exemplo de esquema da resposta do POST
 }
 ```
 
-* __PATCH /pedidos/:id__
+- **PATCH /pedidos/:id**
 
 Exemplo de esquema da requisição
+
 ```json
 {
-   "pedido": "Número 50",
+    "pedido": "Número 50",
     "nome": "Enrico Martins Abreu",
     "endereco": "Avenida Pastor Martin Luther King Júnior N°11089",
     "itensdopedido": "2x X-montanha",
@@ -193,6 +202,7 @@ Exemplo de esquema da requisição
 ```
 
 Exemplo de esquema da resposta
+
 ```json
 {
     "message": "Pedido atualizado com sucesso!"
@@ -200,9 +210,10 @@ Exemplo de esquema da resposta
 }
 ```
 
-* __DELETE  /pedidos/:id__
+- **DELETE /pedidos/:id**
 
 Exemplo de esquema da resposta
+
 ```json
     {
         "message": "O seu pedido foi removido com sucesso!"
@@ -210,9 +221,10 @@ Exemplo de esquema da resposta
     }
 ```
 
- * __ERROS__
+- **ERROS**
 
 Exemplo de esquema da resposta
+
 ```json
 {
     "message": "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!"
@@ -222,7 +234,6 @@ Exemplo de esquema da resposta
 <h2>⚛️Heroku</h2>
 
 Para acessar nossa API na Heroku, clique aqui: https://devburguers.herokuapp.com/
-
 
 <h2 id="grupo">🎮 Nossa equipe</h2>
 
@@ -243,14 +254,6 @@ Para acessar nossa API na Heroku, clique aqui: https://devburguers.herokuapp.com
   <sub>
   <b> Felipe Daniel </b>
   </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.linkedin.com/in/giselle-leadebal-869528128/">
-        <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF8BlT0BPFLyw/profile-displayphoto-shrink_800_800/0/1645827866962?e=1665014400&v=beta&t=VOpxJ2SEQ3aIgOAdeHHWA7sjZkKe5ZsVBge6whvfw9s" width="100px;" alt="Foto de Giselle no Linkedin"/><br>
-        <sub>
-          <b>Giselle Leadebal</b>
-        </sub>
       </a>
     </td>
 <td align="center">
@@ -285,4 +288,4 @@ Para contribuir com nosso projeto, siga estas etapas:
 4 - Envie para o branch original: `git push origin nome_do_projeto> / <local>`
 
 5 - Crie a solicitação de pull.
-*Consulte a documentação do GitHub em* [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+_Consulte a documentação do GitHub em_ [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
