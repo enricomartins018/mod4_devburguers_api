@@ -4,12 +4,12 @@
 <p> A proposta do projeto de final de módulo 4 foi de desenvolver uma API RESTful.
 Com esse desafio, criamos a DevBurguers, uma API pensada para as hambúrguerias da nossa região, utilizando o MongoDB como banco de dados e hospedando nossa API no servidor da Heroku.</p>
 
-## :pencil2: Pré-Requisitos
+## :pencil2: Pré-requisitos
 
 - Node.js v.16.15.1
 - NPM v.8.11.0
 
-## Bibliotecas utilizadas
+## Bibliotecas Utilizadas
 
 - Express
 - Nodemon
@@ -215,10 +215,10 @@ Exemplo de esquema da resposta
 Exemplo de esquema da resposta
 
 ```json
-    {
-        "message": "O seu pedido foi removido com sucesso!"
-        "error": "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!"
-    }
+{
+    "message": "O seu pedido foi removido com sucesso!"
+    "error": "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!"
+}
 ```
 
 - **ERROS**
