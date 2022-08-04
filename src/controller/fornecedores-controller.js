@@ -47,3 +47,26 @@ router.post("/", async (req, res) => {
     }
   });
   
+  // Leitura de dados único, apenas para um id
+  router.get("/:id", async (req, res) => {
+    console.log(req);
+  
+    // extrair o dado da requisição, pela url = req.params
+    const id = req.params.id;
+  
+    try {
+      const fornecedores = await Fornecedores.findOne({ _id: id });
+  
+      if (!Fornecedores) {
+        res
+          .status(422)
+          .json({ message: "Não foi possível encontrar o fornecedor." });
+        return;
+      }
+  
+      res.status(500).json({ fornecedores });
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  });
+  
