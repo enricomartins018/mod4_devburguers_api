@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
     //req.body
     const { nome, ingredientes, preço } = req.body;
 
-    if (!produtos) {
+    if (!Produtos) {
         res.status(422).json({ error: "O nome do produto é obrigatório!" });
         return;
     }
