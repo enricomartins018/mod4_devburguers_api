@@ -70,3 +70,37 @@ router.post("/", async (req, res) => {
     }
   });
   
+  // Update - atualização de dados (PUT, PATCH)
+  router.patch("/:id", async (req, res) => {
+    const id = req.params.id;
+  
+    const { nome, cnpj, inscricaoestadual, email, endereco, telefone } = req.body;
+  
+    const fornecedores = {
+      nome,
+      cnpj,
+      inscricaoestadual,
+      email,
+      endereco,
+      telefone,
+    };
+  
+    try {
+      const updateFornecedores = await Fornecedores.updateOne(
+        { _id: id },
+        fornecedores
+      );
+  
+      if (updateFornecedores.matchedCount === 0) {
+        res
+          .status(422)
+          .json({ message: "Não foi possível encontrar o fornecedor." });
+        return;
+      }
+  
+      res.status(200).json(fornecedores);
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  });
+  
