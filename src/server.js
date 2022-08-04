@@ -5,9 +5,10 @@ import mongoose from 'mongoose'
 
 const devburguers_db_user = process.env.devburguers_db_user
 const devburguers_db_password = encodeURIComponent(process.env.devburguers_db_password)
+const devburguers_db_name = process.env.devburguers_db_name
 
 // Conectando com o banco de dados 
-mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@devburguers.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@${devburguers_db_name}.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
     // Se der tudo ok com a conexão, o then aparece com a seguinte mensagem:
     .then(() => {
         app.listen(process.env.PORT || 3000, ()=>{

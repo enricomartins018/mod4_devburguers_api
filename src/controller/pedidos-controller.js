@@ -102,7 +102,7 @@ router.patch('/:id', async (req, res) => {
             return
         }
 
-        res.status(200).json(pedidos)
+        res.status(200).json({ message: 'Pedido atualizado com sucesso!' })
 
     } catch (error) {
         res.status(500).json({ error: error })
