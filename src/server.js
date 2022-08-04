@@ -10,8 +10,10 @@ const devburguers_db_password = encodeURIComponent(process.env.devburguers_db_pa
 mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@devburguers.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
     // Se der tudo ok com a conexão, o then aparece com a seguinte mensagem:
     .then(() => {
-        app.listen(process.env.PORT || 3000)
-        console.log("Banco de dados conectado com sucesso! \nEndpoint: http://localhost:3000")
+        app.listen(process.env.PORT || 3000, ()=>{
+            console.log("Banco de dados conectado com sucesso! \nEndpoint: http://localhost:3000")
+        })
+       
     })
 
     // Se der erro, o catch aparece com a seguinte mensagem:
