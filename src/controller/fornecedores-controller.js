@@ -104,3 +104,29 @@ router.post("/", async (req, res) => {
     }
   });
   
+  // Delete - Deletar dados
+  router.delete("/:id", async (req, res) => {
+    const id = req.params.id;
+  
+    const fornecedores = await Fornecedores.findOne({ _id: id });
+  
+    if (!Fornecedores) {
+      res
+        .status(422)
+        .json({ error: "Não foi possível encontrar o seu fornecedor." });
+      return;
+    }
+  
+    try {
+      await Fornecedores.deleteOne({ _id: id });
+  
+      res
+        .status(200)
+        .json({ message: "O seu fornecedor foi removido com sucesso!" });
+    } catch (error) {
+      res
+        .status(500)
+        .json({ error: "Não foi possível encontrar o seu fornecedor." });
+    }
+  });
+  
