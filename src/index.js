@@ -20,5 +20,9 @@ app.use("/funcionarios", funcionarioController);
 import produtosController from "./controller/produtos-controller.js";
 app.use('/produtos', produtosController)
 
+//rotas dos fornecedores
+import fornecedoresController from "./controller/fornecedores-controller.js";
+app.use('/fornecedores', fornecedoresController)
+
 // Exportando o Express
 export default app
