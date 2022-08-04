@@ -17,8 +17,8 @@ import funcionarioController from "./controller/funcionario-controller.js";
 app.use("/funcionarios", funcionarioController);
 
 //rotas dos produtos
-import produtoRoutes from './routes/produtos-controller.js'
-app.use('/produto', produtoRoutes)
+import produtosController from "./controller/produtos-controller.js";
+app.use('/produtos', produtosController)
 
 // Exportando o Express
 export default app
