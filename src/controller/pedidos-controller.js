@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
         res.status(201).json({ message: 'Pedido efetuado com sucesso!' })
         //se der erro, o catch aparece
     } catch (error) {
-        res.status(500).json({ message: 'Tivemos problema em efetuar o seu pedido, por favor entre em contato conosco!' })
+        res.status(500).json({ error: 'Não foi possível criar o seu pedido.' })
     }
 
 })
@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
 
     } catch (error) {
 
-        res.status(500).json({ erro: 'Não foi possível encontrar os pedidos, por favor entre em contato conosco!' })
+        res.status(500).json({ error: 'Não foi possível encontrar os pedidos.' })
 
     }
 
@@ -63,7 +63,7 @@ router.get('/:id', async (req, res) => {
         const pedidos = await Pedidos.findOne({ _id: id })
 
         if (!pedidos) {
-            res.status(422).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+            res.status(422).json({ error: "Não foi possível encontrar o seu pedido." })
             return
         }
 
@@ -98,14 +98,14 @@ router.patch('/:id', async (req, res) => {
         const updatePedidos = await Pedidos.updateOne({ _id: id }, pedidos)
 
         if (updatePedidos.matchedCount === 0) {
-            res.status(422).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+            res.status(422).json({ error: "Não foi possível encontrar o seu pedido." })
             return
         }
 
         res.status(200).json({ message: 'Pedido atualizado com sucesso!' })
 
     } catch (error) {
-        res.status(500).json({ error: error })
+        res.status(500).json({ error: "Não foi possível encontrar o seu pedido." })
 
     }
 })
@@ -118,7 +118,7 @@ router.delete('/:id', async (req, res) => {
     const pedidos = await Pedidos.findOne({ _id: id })
 
     if (!pedidos) {
-        res.status(422).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+        res.status(422).json({ error: "Não foi possível encontrar o seu pedido." })
         return
     }
 
@@ -130,7 +130,7 @@ router.delete('/:id', async (req, res) => {
 
     } catch (error) {
 
-        res.status(500).json({ message: "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!" })
+        res.status(500).json({ error: "Não foi possível encontrar o seu pedido." })
     }
 })
 
