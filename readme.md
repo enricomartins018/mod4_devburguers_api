@@ -1,30 +1,21 @@
 # Projeto de Final de Módulo 4 - DevBurguers 🍔
 
-  <a href="#sobre">Sobre |</a>&nbsp;&nbsp;
-  <a href="#andamento"> Andamento  |</a>&nbsp;&nbsp;
-  <a href="#linguagens">Softwares & Ferramentas utilizadas  |</a>&nbsp;&nbsp;
-  <a href="#grupo">Autores  |</a> &nbsp;&nbsp;
-  <a href="#contribuir">Como contribuir</a>&nbsp;&nbsp;
+<h2>🔎 Sobre o projeto</h2>
+<p> A proposta do projeto de final de módulo 4 foi de desenvolver uma API RESTful.
+Com esse desafio, criamos a DevBurguers, uma API pensada para as hambúrguerias da nossa região, utilizando o MongoDB como banco de dados e hospedando nossa API no servidor da Heroku.</p>
 
-   <h2 id="sobre">Sobre o projeto🔎</h2>
-  <p> A proposta do projeto era, em squad, desenvolver propostas de APIs que seriam o produto mínimamente viáveis de um aplicativo. Para isso, precisamos definir quais seriam as entidades que o projeto precisa contemplar e implementar em seguida.
- </p>
+##  :pencil2: Pré-Requisitos
+  * Node.js  v.16.15.1
+  * NPM v.8.11.0
 
-  ✔️ Utilizar o padrão MVC;<br>
-  ✔️ Utilizar os verbos HTTP seguindo o padrão REST;<br>
-  ✔️ Implementar todas as operações de CRUD;<br>
-  ✔️ Utilizar o padrão de projeto (design pattern) DAO para abstração de transações no banco, com Promises;<br>
-  ✔️ Utilizar o README.md do repositório para documentação, contendo informações como instalar as dependências do projeto, como executar o projeto, quais são as rotas possíveis, quaisquer outros pontos que você achar necessários;<br>
-  ✔️ Utilização de async/await para operações no banco (DAO);<br>
-  ✔️ Ter o código fonte hospedado em um repositório no Github.
+##  Bibliotecas utilizadas
 
-<br>
+* Express
+* Nodemon
+* Mongoose
+* Dotenv
 
-  <h2 id="andamento">Andamento do projeto 📈</h2>
-
-  <p> Em Andamento </p>
-
-  <h2 id="linguagens">Softwares & Ferramentas utilizadas nesse projeto 📚</h2>
+<h2 id="linguagens">📚 Softwares & Ferramentas utilizadas nesse projeto </h2>
 
   - [x] Visual Studio Code
   - [x] NodeJs
@@ -33,9 +24,195 @@
   - [x] Git
   - [x] KanBan
   - [x] Trello
-  - [x] Canva
+  - [x] Figma
 
-<h2 id="grupo">Squad 🎮 </h2>
+## ⚙ Instalação da Aplicação
+
+Abra o terminal/Powershell e rode os comandos abaixo:
+
+Clonando o repositório:
+```
+git clone https://github.com/enricomartins018/mod4_devburguers_api.git
+```
+
+Instalando as bibliotecas:
+```
+npm install 
+```
+
+Atualizando os scripts no package.json:
+```
+"scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+}
+```
+
+Rodando o projeto no modo de produção:
+```
+npm start
+```
+
+Rodando o projeto no modo de desenvolvimento:
+```
+npm run dev
+```
+<h2 id="contribuir">🌿 Criando e conectando seu banco de dados no MongoDB</h2>
+```
+Siga o passo a passo para criar seu banco de dados e se conectar:
+
+1 - Acesse o site: https://www.mongodb.com/atlas/database
+
+2 - Clique em "Try Free" e crie sua conta.
+
+3 - Faça sua verificação de email.
+
+4 - Selecione o Servidor "Shared" (Free) e clique em "create".
+
+5 - Configure seu servidor da nuvem e a região. (Recomendado: AWS Sao-Paulo)
+
+6 - Selecione o armazenamento de sua preferência. (Recomendado: M0 Sandbox) 
+
+7 - Configure o nome do seu banco de dados.
+
+8 - Agora crie o seu banco de dados em "Create Cluster" e aguarde alguns minutos até estar pronto.
+
+9 - Defina um usuário e senha para seu banco de dados. (Recomendado: Senha gerada pelo MongoDB)
+
+10 - Defina um endereço IP para o seu banco de dados se conectar.
+
+11 - Finalize suas configurações.
+
+12 - Clique em "Conect".
+
+13 - Clique em "Conect your application".
+
+14 - Selecione o Driver "Node.js", com a sua respectiva versão.
+
+15 - Agora note que existe um comando de código para conexão com o banco de dados do Mongo DB, copie e cole o código abaixo e insira dentro do arquivo "server.js" a partir da linha 10 a 11.
+
+mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@${devburguers_db_name}.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
+
+16 - Para proteção do seu banco de dados, criamos variáveis de ambientes, note que no código acima temos três variáveis: Email, senha e nome.
+
+17 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida insira o email, senha e nome dentro do arquivo para conectar com seu banco de dados. 
+Exemplo: 
+devburguers_db_user=seuusuario
+devburguers_db_password=suasenha
+devburguers_db_name=nomedoseubancodedados
+
+18 - Tente efetuar um teste de conexão para ver se está tudo ok. Obs: Abra o terminal e insira o comando "npm run dev"
+```
+
+##  Exemplo de Rota: Pedidos 
+
+ * __GET  /pedidos__
+
+Exemplo de esquema da resposta:
+```json
+
+{
+    "_id": "62e988a701ea8a88b5d2cf25",
+    "pedido": "Número 50",
+    "nome": "Enrico Martins",
+    "endereco": "Avenida Pastor Martin Luther King Júnior N°11089",
+    "itensdopedido": "2x X-bacon",
+    "formadepagamento": "Cartão de crédito",
+    "mododeentrega": "Delivery",
+    "total": "R$30,00"
+}
+```
+
+ * __GET  /pedidos/:id__
+
+Exemplo de esquema da resposta:
+```json
+
+{
+    "pedidos": {
+        "_id": "62e988a701ea8a88b5d2cf25",
+        "pedido": "Número 50",
+        "nome": "Enrico Martins",
+        "endereco": "Avenida Pastor Martin Luther King Júnior N°11089",
+        "itensdopedido": "2x X-bacon",
+        "formadepagamento": "Cartão de crédito",
+        "mododeentrega": "Delivery",
+        "total": "R$30,00",
+    }
+}
+```
+
+* __POST /pedidos__
+
+Exemplo de esquema da requisição
+```json
+{
+    "pedido": "Número 52",
+    "nome": "Iago Theo Drumond",
+    "endereco": "Rua Itabira N°651",
+    "itensdopedido": "5x X-burguer (sem cebola e tomate), 1x Coca-cola de 2L",
+    "formadepagamento": "Cartão de débito",
+    "mododeentrega": "Retirar na loja",
+    "total": "R$124,76"
+}
+```
+
+Exemplo de esquema da resposta do POST
+```json
+{
+    "message": "Pedido efetuado com sucesso!"
+    "error": "Não foi possível efetuar seu pedido!"
+}
+```
+
+* __PATCH /pedidos/:id__
+
+Exemplo de esquema da requisição
+```json
+{
+   "pedido": "Número 50",
+    "nome": "Enrico Martins Abreu",
+    "endereco": "Avenida Pastor Martin Luther King Júnior N°11089",
+    "itensdopedido": "2x X-montanha",
+    "formadepagamento": "Cartão de crédito",
+    "mododeentrega": "Delivery",
+    "total": "R$30,00"
+}
+```
+
+Exemplo de esquema da resposta
+```json
+{
+    "message": "Pedido atualizado com sucesso!"
+    "error": "Não foi possível encontrar o seu pedido!"
+}
+```
+
+* __DELETE  /pedidos/:id__
+
+Exemplo de esquema da resposta
+```json
+    {
+        "message": "O seu pedido foi removido com sucesso!"
+        "error": "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!"
+    }
+```
+
+ * __ERROS__
+
+Exemplo de esquema da resposta
+```json
+{
+    "message": "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!"
+}
+```
+
+<h2>⚛️Heroku</h2>
+
+Para acessar nossa API na Heroku, clique aqui: https://devburguers.herokuapp.com/
+
+
+<h2 id="grupo">🎮 Nossa equipe</h2>
 
 <p> Esse projeto foi pensado e executado por: </p>
 <table>
@@ -84,15 +261,16 @@
   </tr>
 </table>
 
-<h2 id="contribuir">Como contribuir 📫</h2>
-
+<h2 id="contribuir"> 📫 Como contribuir</h2>
 Para contribuir com nosso projeto, siga estas etapas:
-  >- Bifurque este repositório.
-  >- Crie um branch: `git checkout -b <nome_branch>`.
-  >- Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-  >- Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
-  >- Crie a solicitação de pull.
+
+1 - Bifurque este repositório.
+
+2 - Crie um branch: `git checkout -b <nome_branch>`.
+
+3 - Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
+
+4 - Envie para o branch original: `git push origin nome_do_projeto> / <local>`
+
+5 - Crie a solicitação de pull.
 *Consulte a documentação do GitHub em* [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-<div align="center">
-  &#11165;&nbsp;<a href="#inicio"><strong>Voltar ao topo</strong></a>&nbsp;&#11165;
-</div>
