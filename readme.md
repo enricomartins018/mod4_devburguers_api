@@ -31,16 +31,19 @@ Com esse desafio, criamos a DevBurguers, uma API pensada para as hambúrguerias 
 Abra o terminal/Powershell e rode os comandos abaixo:
 
 Clonando o repositório:
+
 ```
 git clone https://github.com/enricomartins018/mod4_devburguers_api.git
 ```
 
 Instalando as bibliotecas:
+
 ```
 npm install 
 ```
 
 Atualizando os scripts no package.json:
+
 ```
 "scripts": {
     "start": "node ./src/server.js",
@@ -58,7 +61,7 @@ Rodando o projeto no modo de desenvolvimento:
 npm run dev
 ```
 <h2 id="contribuir">🌿 Criando e conectando seu banco de dados no MongoDB</h2>
-```
+
 Siga o passo a passo para criar seu banco de dados e se conectar:
 
 1 - Acesse o site: https://www.mongodb.com/atlas/database
@@ -96,15 +99,24 @@ mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password
 16 - Para proteção do seu banco de dados, criamos variáveis de ambientes, note que no código acima temos três variáveis: Email, senha e nome.
 
 17 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida insira o email, senha e nome dentro do arquivo para conectar com seu banco de dados. 
+
 Exemplo: 
+```
 devburguers_db_user=seuusuario
 devburguers_db_password=suasenha
 devburguers_db_name=nomedoseubancodedados
-
-18 - Tente efetuar um teste de conexão para ver se está tudo ok. Obs: Abra o terminal e insira o comando "npm run dev"
 ```
 
-##  Exemplo de Rota: Pedidos 
+18 - Tente efetuar um teste de conexão para ver se está tudo ok. Obs: Abra o terminal e insira o comando "npm run dev"
+
+Esquema de resposta para uma conexão sucedida
+```
+[nodemon] starting `node ./src/server.js`
+Banco de dados conectado com sucesso!
+Endpoint: http://localhost:3000
+```
+
+## Exemplo de Rota: Pedidos 
 
  * __GET  /pedidos__
 
