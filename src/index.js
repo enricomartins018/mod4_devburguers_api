@@ -1,7 +1,10 @@
 // Importações de bibliotecas Express e Dotenv
 import express from 'express';
+import * as dotenv from 'dotenv';
+
+dotenv.config()
 const app = express()
-import "dotenv/config";
+
 
 app.use(express.json());
 
