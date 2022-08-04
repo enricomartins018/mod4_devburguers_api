@@ -34,3 +34,16 @@ router.post("/", async (req, res) => {
     }
   });
   
+  // Read - Leitura de dados para todo o banco de dados
+  router.get("/", async (req, res) => {
+    try {
+      const fornecedores = await Fornecedores.find();
+  
+      res.status(200).json(Fornecedores);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ erro: "Não foi possível encontrar os fornecedores." });
+    }
+  });
+  
