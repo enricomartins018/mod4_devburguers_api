@@ -45,7 +45,7 @@ router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
   if (!Funcionario) {
-    res.status(422).json({ mensagem: "O funcionário não foi encontrado!" });
+    res.status(422).json({ error: "O funcionário não foi encontrado!" });
     return;
   }
 
@@ -76,7 +76,7 @@ router.patch("/:id", async (req, res) => {
     );
 
     if (!updatedFuncionario.matchedCount === 0) {
-      res.status(422).json({ mensagem: "O funcionário não foi encontrado!" });
+      res.status(422).json({ error: "O funcionário não foi encontrado!" });
       return;
     }
 
@@ -91,7 +91,7 @@ router.delete("/:id", async (req, res) => {
   const id = req.params.id;
   const funcionario = Funcionario.findOne({ _id: id });
   if (!funcionario) {
-    res.status(422).json({ mensagem: "O funcionário não foi encontrado!" });
+    res.status(422).json({ error: "O funcionário não foi encontrado!" });
     return;
   }
 

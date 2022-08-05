@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
     } catch (error) {
       res
         .status(500)
-        .json({ message: "Tivemos problema em adicionar o novo fornecedor." });
+        .json({ error: "Tivemos problema em adicionar o novo fornecedor." });
     }
   });
   
@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
     } catch (error) {
       res
         .status(500)
-        .json({ erro: "Não foi possível encontrar os fornecedores." });
+        .json({ error: "Não foi possível encontrar os fornecedores." });
     }
   });
   
@@ -60,7 +60,7 @@ router.post("/", async (req, res) => {
       if (!Fornecedores) {
         res
           .status(422)
-          .json({ message: "Não foi possível encontrar o fornecedor." });
+          .json({ error: "Não foi possível encontrar o fornecedor." });
         return;
       }
   
@@ -94,7 +94,7 @@ router.post("/", async (req, res) => {
       if (updateFornecedores.matchedCount === 0) {
         res
           .status(422)
-          .json({ message: "Não foi possível encontrar o fornecedor." });
+          .json({ error: "Não foi possível encontrar o fornecedor." });
         return;
       }
   
