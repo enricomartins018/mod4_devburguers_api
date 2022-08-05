@@ -217,7 +217,7 @@ Exemplo de esquema da resposta
 ```json
 {
     "message": "O seu pedido foi removido com sucesso!"
-    "error": "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!"
+    "error": "Não foi possível encontrar o seu pedido."
 }
 ```
 
@@ -227,7 +227,7 @@ Exemplo de esquema da resposta
 
 ```json
 {
-    "message": "Não foi possível encontrar o seu pedido, por favor entre em contato conosco!"
+    "error": "Não foi possível encontrar o seu pedido."
 }
 ```
 
