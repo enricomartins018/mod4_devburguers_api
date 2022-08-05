@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
     try {
       const fornecedores = await Fornecedores.find();
   
-      res.status(200).json(Fornecedores);
+      res.status(200).json(fornecedores);
     } catch (error) {
       res
         .status(500)

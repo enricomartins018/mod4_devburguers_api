@@ -45,7 +45,7 @@ router.get("/:id", async (req, res) => {
   const id = req.params.id;
 
   if (!Funcionario) {
-    res.status(422).json({ mensagem: "O usuário não foi encontrado!" });
+    res.status(422).json({ mensagem: "O funcionário não foi encontrado!" });
     return;
   }
 
@@ -91,13 +91,13 @@ router.delete("/:id", async (req, res) => {
   const id = req.params.id;
   const funcionario = Funcionario.findOne({ _id: id });
   if (!funcionario) {
-    res.status(422).json({ mensagem: "O usuário não foi encontrado!" });
+    res.status(422).json({ mensagem: "O funcionário não foi encontrado!" });
     return;
   }
 
   try {
     await Funcionario.deleteOne({ _id: id });
-    res.status(200).json({ mensagem: "Usuário removido com sucesso!" });
+    res.status(200).json({ mensagem: "Funcionário removido com sucesso!" });
   } catch (error) {
     res.status(500).json({ error: error });
   }
