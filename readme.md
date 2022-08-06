@@ -96,15 +96,26 @@ Siga o passo a passo para criar seu banco de dados e se conectar:
 
 14 - Selecione o Driver "Node.js", com a sua respectiva versão.
 
-15 - Agora observe que existe um comando de código para conexão com o banco de dados do Mongo DB, copie o código fornecido e insira na linha 10 dentro do arquivo "server.js" no "mongoose.conect(``)".
+15 - Agora observe que existe um comando de código para conexão com o banco de dados do Mongo DB conforme mostramos na imagem abaixo, seu usuário "testando1234", sua senha "password" (elimine as setas na hora de alterar para a sua senha), o nome do seu banco de dados "testando123456" e a sua chave de conexão "bqr6gpc".
 
-16 - Exemplo:
+Exemplo: 
 
-![gsgsd](https://user-images.githubusercontent.com/102622514/183228132-7a7970d9-81a9-4543-abe6-0e4804820f9d.png)
+![image](https://user-images.githubusercontent.com/102622514/183229476-280bf193-f6a4-4fc2-b5f9-49bf3d19aa50.png)
 
-17 - Para proteção do seu banco de dados, criamos variáveis de ambientes, note que no código acima temos três variáveis: Email, senha e nome.
+16: Agora copie o código abaixo e insira na linha 12 do arquivo "server.js".
 
-18 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida insira o email, senha e nome dentro do arquivo para conectar com seu banco de dados.
+```
+mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@${devburguers_db_name}.${devburguers_db_key}.mongodb.net/?retryWrites=true&w=majority`)
+```
+
+Exemplo:
+
+![image](https://user-images.githubusercontent.com/102622514/183229653-d27680cf-b73c-4156-8876-54f275a7bc15.png)
+
+
+17 - Para proteção do seu banco de dados, criamos variáveis de ambientes, note que no código acima temos quatro variáveis: usuário, senha, nome do seu banco de dados e a key de conexão.
+
+18 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida, insira o email, senha, nome do seu banco de dados e a sua key dentro do arquivo para conectar com seu banco de dados.
 
 Exemplo:
 
@@ -112,6 +123,7 @@ Exemplo:
 devburguers_db_user=seuusuario
 devburguers_db_password=suasenha
 devburguers_db_name=nomedoseubancodedados
+devburguers_db_key=suakey
 ```
 
 18 - Tente efetuar um teste de conexão para ver se está tudo ok. Obs: Abra o terminal e insira o comando "npm run dev"
