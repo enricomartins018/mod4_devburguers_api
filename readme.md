@@ -96,13 +96,15 @@ Siga o passo a passo para criar seu banco de dados e se conectar:
 
 14 - Selecione o Driver "Node.js", com a sua respectiva versão.
 
-15 - Agora note que existe um comando de código para conexão com o banco de dados do Mongo DB, copie e cole o código abaixo e insira dentro do arquivo "server.js" a partir da linha 10 a 11.
+15 - Agora observe que existe um comando de código para conexão com o banco de dados do Mongo DB, copie o código fornecido e insira na linha 10 dentro do arquivo "server.js" no "mongoose.conect(``)".
 
-mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@${devburguers_db_name}.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
+16 - Exemplo:
 
-16 - Para proteção do seu banco de dados, criamos variáveis de ambientes, note que no código acima temos três variáveis: Email, senha e nome.
+![gsgsd](https://user-images.githubusercontent.com/102622514/183228132-7a7970d9-81a9-4543-abe6-0e4804820f9d.png)
 
-17 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida insira o email, senha e nome dentro do arquivo para conectar com seu banco de dados.
+17 - Para proteção do seu banco de dados, criamos variáveis de ambientes, note que no código acima temos três variáveis: Email, senha e nome.
+
+18 - Vá no arquivo ".env.example" e renomeie para apenas ".env", em seguida insira o email, senha e nome dentro do arquivo para conectar com seu banco de dados.
 
 Exemplo:
 
