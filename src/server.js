@@ -12,7 +12,7 @@ const devburguers_db_port = 3000
 mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@${devburguers_db_name}.c3dpllu.mongodb.net/?retryWrites=true&w=majority`)
     // Se der tudo ok com a conexão, o then aparece com a seguinte mensagem:
     .then(() => {
-        app.listen(process.env.port || `${devburguers_db_port}`, () => {
+        app.listen(process.env.PORT || `${devburguers_db_port}`, () => {
             console.log("Banco de dados conectado com sucesso! \nEndpoint: http://localhost:3000")
         })
 
