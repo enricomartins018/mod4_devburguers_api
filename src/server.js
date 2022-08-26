@@ -11,6 +11,7 @@ const port = process.env.PORT || 3000
 
 // Conectando com o banco de dados 
 mongoose.connect(`mongodb+srv://${devburguers_db_user}:${devburguers_db_password}@${devburguers_db_name}.${devburguers_db_key}.mongodb.net/?retryWrites=true&w=majority`)
+
     // Se der tudo ok com a conexão, o then aparece com a seguinte mensagem:
     .then(() => {
         app.listen(port, () => {
